@@ -21,8 +21,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t abhayverma007/dev0ps:latest .
+          docker build -t abhayverma007/dev0ps:latest -t abhayverma007/dev0ps:${{ github.sha }} .
 
       - name: Push Docker image
         run: |
           docker push abhayverma007/dev0ps:latest
+          docker push abhayverma007/dev0ps:${{ github.sha }}
